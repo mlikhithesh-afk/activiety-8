@@ -34,12 +34,14 @@ viewToggle.addEventListener("click", function () {
 
 // MOBILE HAMBURGER MENU
 menuBtn.addEventListener("click", function () {
-    navLinks.classList.toggle("active");
+    const isExpanded = navLinks.classList.toggle("active");
+    menuBtn.setAttribute("aria-expanded", isExpanded);
 });
 
 // CLOSE MOBILE MENU WHEN LINK IS CLICKED
 navLinks.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
         navLinks.classList.remove("active");
+        menuBtn.setAttribute("aria-expanded", "false");
     });
 });
